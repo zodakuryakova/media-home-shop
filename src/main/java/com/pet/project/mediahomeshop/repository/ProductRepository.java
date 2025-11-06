@@ -1,4 +1,4 @@
-package com.pet.project.mediahomeshop.dao;
+package com.pet.project.mediahomeshop.repository;
 
 import com.pet.project.mediahomeshop.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
