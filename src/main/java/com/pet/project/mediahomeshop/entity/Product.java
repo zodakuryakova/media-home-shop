@@ -26,14 +26,6 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String brand, double price, String imageUrl, int category_id) {
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.category_id = category_id;
-    }
-
     public int getId() {
         return id;
     }

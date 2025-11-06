@@ -1,6 +1,6 @@
 package com.pet.project.mediahomeshop.service;
 
-import com.pet.project.mediahomeshop.dao.ProductRepository;
+import com.pet.project.mediahomeshop.repository.ProductRepository;
 import com.pet.project.mediahomeshop.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
