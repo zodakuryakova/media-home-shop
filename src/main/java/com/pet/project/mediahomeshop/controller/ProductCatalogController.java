@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// instead autowired
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/products")
