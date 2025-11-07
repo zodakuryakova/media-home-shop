@@ -2,6 +2,7 @@ package com.pet.project.mediahomeshop.service;
 
 import com.pet.project.mediahomeshop.repository.ProductRepository;
 import com.pet.project.mediahomeshop.entity.Product;
+import com.pet.project.mediahomeshop.specification.ProductSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,9 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> getAllProducts() {
-        List<Product> allProducts = productRepository.findAll();
-        return allProducts;
+    public List<Product> getAllProducts(Integer categoryId, Double minPrice, Double maxPrice, String brand) {
+        return productRepository.findAll(
+                new ProductSpecification(categoryId, minPrice, maxPrice, brand)
+        );
     }
 }
