@@ -7,5 +7,6 @@ import java.util.List;
 
 @Service
 public interface ProductService {
-    public List<Product> getAllProducts();
+    public List<Product> getAllProducts(Integer categoryId, Double minPrice, Double maxPrice, String brand);
+
 }
