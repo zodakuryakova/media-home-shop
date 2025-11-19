@@ -19,6 +19,6 @@ public class ProductGlobalExceptionHandler {
     public ResponseEntity<ProductIncorrectData> handleException(Exception exception){
         ProductIncorrectData data = new ProductIncorrectData();
         data.setInfo(exception.getMessage());
-        return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
     }
 }
