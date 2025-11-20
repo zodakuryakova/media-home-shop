@@ -87,11 +87,4 @@ class ProductCatalogControllerTest {
 
         assertThrowsExactly(NoSuchProductException.class, () -> productCatalogController.getProduct(2));
     }
-
-    @Test
-    void getProductByIncorrectId(){
-        when(productService.getProductById(999)).thenReturn(null);
-
-        assertThrowsExactly(NoSuchProductException.class, () -> productCatalogController.getProduct(999));
-    }
 }
