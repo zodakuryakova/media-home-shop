@@ -3,6 +3,7 @@ package com.pet.project.mediahomeshop.controller;
 import com.pet.project.mediahomeshop.dto.ProductResponseDTO;
 import com.pet.project.mediahomeshop.entity.Category;
 import com.pet.project.mediahomeshop.entity.Product;
+import com.pet.project.mediahomeshop.exception.NoSuchProductException;
 import com.pet.project.mediahomeshop.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -53,5 +54,37 @@ class ProductCatalogControllerTest {
         assertEquals(0, result.getPage());
         assertEquals(10, result.getSize());
         assertEquals(product, result.getItems().get(0));
+    }
+
+    @Test
+    void getProductById(){
+        Category category = new Category();
+        category.setId(1);
+        category.setName("test category");
+
+        Product product = new Product();
+        product.setId(1);
+        product.setName("test");
+        product.setCategory(category);
+
+
+        when(productService.getProductById(1)).thenReturn(product);
+
+        Product result = productCatalogController.getProduct(1);
+
+        assertNotNull(result);
+        assertEquals(1, result.getCategory().getId());
+        assertEquals("test", result.getName());
+        assertEquals("test category", result.getCategory().getName());
+        assertEquals(product, result);
+
+    }
+
+
+    @Test
+    void getProductByNoNExistedId(){
+        when(productService.getProductById(2)).thenReturn(null);
+
+        assertThrowsExactly(NoSuchProductException.class, () -> productCatalogController.getProduct(2));
     }
 }

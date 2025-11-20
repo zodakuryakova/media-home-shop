@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -29,5 +30,15 @@ public class ProductServiceImpl implements ProductService {
                 new ProductSpecification(categoryId, minPrice, maxPrice, brand),
                 pageable
         );
+    }
+
+    @Override
+    public Product getProductById(Integer id) {
+        Product product = null;
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()) {
+            product = optionalProduct.get();
+        }
+        return product;
     }
 }
