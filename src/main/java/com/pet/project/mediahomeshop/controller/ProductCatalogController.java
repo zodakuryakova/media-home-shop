@@ -29,8 +29,8 @@ public class ProductCatalogController {
             @RequestParam(required = false) Integer categoryId,
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice,
-            @RequestParam(required = false) Integer page,
-            @RequestParam(required = false) Integer size
+            @RequestParam(required = false, defaultValue = "0") Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer size
     ) {
 
         Pageable pageable = PageRequest.of(page, size);
