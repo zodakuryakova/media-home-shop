@@ -10,14 +10,14 @@ import lombok.Data;
 
 
 @Data
-@Table
+@Table(name = "users")
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="userName")
-    private String userName;
+    @Column(name="username")
+    private String username;
 
     @Column(name="email")
     private String email;
