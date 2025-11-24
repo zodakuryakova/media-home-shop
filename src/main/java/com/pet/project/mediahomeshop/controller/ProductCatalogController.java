@@ -55,6 +55,4 @@ public class ProductCatalogController {
         }
         return product;
     }
-
-
 }
